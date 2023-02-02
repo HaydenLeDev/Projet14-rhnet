@@ -1,0 +1,38 @@
+@import '../../style/colors';
+
+
+.Form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 87vh;
+    width: 100%;
+}
+
+.inputCustom{
+    position: relative;
+
+    &_label{
+        position: absolute;
+        top: 21px;
+        left: 16px;
+        padding: 0px 8px 0px 8px;
+        background-color: $white-color;
+        color: $base-color-neutre;
+        transition: all 0.27s ease-in-out;
+    }
+
+    &_input{
+        width: 333px;
+        height: 62px;
+        border: 2px solid $base-color-neutre;
+        border-radius: 5px;
+        padding-left: 16px;
+
+        &:focus + .inputCustom_label{
+            top: -10px;
+            left: 16px;
+            color: black;
+        }
+    }    
+}

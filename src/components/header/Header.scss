@@ -1,0 +1,15 @@
+.Header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 64px);
+    padding: 8px 32px 8px 32px;
+    background: #F9F9F9;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.06);
+
+    &_nav{
+        display: flex;
+        gap: 16px;
+    }
+}
+
