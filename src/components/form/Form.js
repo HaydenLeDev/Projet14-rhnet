@@ -1,9 +1,18 @@
 import "./Form.scss"
+import Parcours from "./parcours/Parcours"
 
 const Form = () => {
     return (
         <section className="Form">
-            <form>
+            <Parcours index={1}/>
+        </section>
+    )
+}
+
+export default Form
+
+/*
+<form>
                 <div className="inputCustom">
                     <input
                         className="inputCustom_input"
@@ -14,8 +23,4 @@ const Form = () => {
                     <label className="inputCustom_label">First Name</label>
                 </div>
             </form>
-        </section>
-    )
-}
-
-export default Form
+*/
