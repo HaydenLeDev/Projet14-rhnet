@@ -3,15 +3,44 @@
 
 .Form{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 87vh;
-    width: 100%;
+    gap: 16px;
+    width: 330px;
+    height: 100vh;
+    padding: 0px 32px 0px 32px;
+    background-color: $white-color;
+    border-radius: 5px;
+
+    &_form{
+        display: flex;
+        gap: 330px;
+        transform: translateX(990px);
+        &_section{
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 330px;
+
+        }
+
+        &_personnalInformation{
+            
+        }
+
+        &_adress{
+
+        }
+
+        &_workspace{
+        
+        }
+    }
 }
 
 .inputCustom{
     position: relative;
-
     &_label{
         position: absolute;
         top: 21px;
@@ -20,19 +49,57 @@
         background-color: $white-color;
         color: $main-color-neutre;
         transition: all 0.27s ease-in-out;
+        z-index: 1;
     }
 
     &_input{
-        width: 333px;
+        width: calc(100% - 16px);
         height: 62px;
         border: 2px solid $main-color-neutre;
+        background-color: transparent;
         border-radius: 5px;
         padding-left: 16px;
-
+        z-index: 3;
         &:focus + .inputCustom_label{
             top: -10px;
             left: 16px;
             color: black;
+            z-index: 0;
         }
     }    
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 330px;
+}
+
+.button_prec{       
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-decoration-line: underline;
+    background-color: transparent;
+    color: $main-color-neutre;
+    border: none;
+}
+
+.button_next{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    background: $main-color-neutre;
+    border-radius: 10px;
+    padding: 12px 32px;
+    color: $white-color;
+    border: none;
+}
+
+button.shake{
+    transform: translateX(-330px);
 }

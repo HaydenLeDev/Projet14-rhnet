@@ -7,3 +7,14 @@
     color: $black;
     text-decoration: none;
 }
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+fieldset{
+    border: none;
+}
