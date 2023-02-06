@@ -28,7 +28,7 @@ const Form = () => {
         <section className="Form">
             <Parcours index={index} />
             <form className="Form_form" ref={ref}>
-                <fieldset className="Form_form_section Form_form_personnalInformation">
+                <fieldset className="Form_form_section">
                     <div className="inputCustom">
                         <input
                             className="inputCustom_input"
@@ -57,7 +57,7 @@ const Form = () => {
                         <label className="inputCustom_label">Date of Birthday</label>
                     </div>
                 </fieldset>
-                <fieldset className="Form_form_section Form_form_adress">
+                <fieldset className="Form_form_section">
                     <div className="inputCustom">
                         <input
                             className="inputCustom_input"
@@ -95,7 +95,7 @@ const Form = () => {
                         <label className="inputCustom_label">Zip Code</label>
                     </div>
                 </fieldset>
-                <fieldset className="Form_form_section Form_form_workspace">
+                <fieldset className="Form_form_section">
                     <div className="inputCustom">
                         <input
                             className="inputCustom_input"
@@ -115,7 +115,7 @@ const Form = () => {
                         <label className="inputCustom_label">Departement</label>
                     </div>
                 </fieldset>
-                <fieldset className="Form_form_section Form_form_recap">
+                <fieldset className="Form_form_section">
                     <p>recap</p>
                     <button>Ajouter</button>
                 </fieldset>

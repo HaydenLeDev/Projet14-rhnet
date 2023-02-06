@@ -12,29 +12,18 @@
     padding: 0px 32px 0px 32px;
     background-color: $white-color;
     border-radius: 5px;
-
+    overflow-x: hidden;
     &_form{
         display: flex;
         gap: 330px;
         transform: translateX(990px);
+        transition: 1s ease-in-out;
         &_section{
             display: flex;
             flex-direction: column;
             gap: 16px;
             width: 330px;
 
-        }
-
-        &_personnalInformation{
-            
-        }
-
-        &_adress{
-
-        }
-
-        &_workspace{
-        
         }
     }
 }
