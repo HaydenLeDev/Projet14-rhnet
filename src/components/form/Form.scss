@@ -8,8 +8,7 @@
     align-items: center;
     gap: 16px;
     width: 330px;
-    height: 100vh;
-    padding: 0px 32px 0px 32px;
+    padding: 32px 32px 32px 32px;
     background-color: $white-color;
     border-radius: 5px;
     overflow-x: hidden;
@@ -35,6 +34,7 @@
         top: 21px;
         left: 16px;
         padding: 0px 8px 0px 8px;
+        height: 20px;
         background-color: $white-color;
         color: $main-color-neutre;
         transition: all 0.27s ease-in-out;
@@ -49,13 +49,26 @@
         border-radius: 5px;
         padding-left: 16px;
         z-index: 3;
+
+        &:focus{
+        border: 2px solid $main-color-fonce;
+        }
+
+
         &:focus + .inputCustom_label{
             top: -10px;
             left: 16px;
-            color: black;
+            color: $main-color-fonce;
             z-index: 0;
         }
     }    
+}
+
+.isClicked + .inputCustom_label{
+    top: -10px;
+    left: 16px;
+    color: $main-color-neutre;
+    z-index: 0;
 }
 
 .buttons{

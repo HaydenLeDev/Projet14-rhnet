@@ -8,16 +8,16 @@ const Form = () => {
     const isOverMax = index >= 4
     const isLessMin = index <= 1
     const ref = useRef(null);
-    
+
     const [personalInformation, setPersonalInformation] = useState({
         firstName: "",
         lastName: "",
-        dateOfBirthday:""
+        dateOfBirthday: ""
     })
 
     const [adress, setAdresse] = useState({
         street: "",
-        city:"",
+        city: "",
         state: "",
         zipCode: ""
     })
@@ -27,45 +27,68 @@ const Form = () => {
         departement: "",
     })
 
-    const onChangePersonalInformation = (e) => {    
+    const onChangePersonalInformation = (e) => {
+        e.target.classList.add('isClicked')
         setPersonalInformation({
             ...personalInformation,
-            [e.target.name] : e.target.value //Quand on passe dans onchange on fusionne l'ancien etat avec la nouveauté
-          })
-    } 
+            [e.target.name]: e.target.value //Quand on passe dans onchange on fusionne l'ancien etat avec la nouveauté
+        })
+    }
 
-    const onChangeAdresse = (e) => {    
+    const onChangeAdresse = (e) => {
+        e.target.classList.add('isClicked')
         setAdresse({
             ...adress,
-            [e.target.name] : e.target.value
-          })
-    } 
+            [e.target.name]: e.target.value
+        })
+    }
 
-    const onSubmit = () => {
+    const onChangeWorkInformation = (e) => {
+        e.target.classList.add('isClicked')
+        setWorkInformation({
+            ...workInformation,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault()
         console.log(personalInformation)
         console.log(adress)
+        console.log(workInformation)
     }
 
     const onClickNext = () => {
-        if(!isOverMax){
+        if (!isOverMax) {
             setIndex(index + 1)
-            ref.current.style.transform = `translate(${990 - (660 * index)}px, ${0}px)` 
+            ref.current.style.transform = `translate(${990 - (660 * index)}px, ${0}px)`
         }
     }
 
     const onClickPrec = () => {
-        if(!isLessMin){
+        if (!isLessMin) {
             setIndex(index - 1)
             ref.current.style.transform = `translate(${-990 + (660 * (5 - index))}px, ${0}px)`
         }
     }
 
+    const displaysValidate = () => {
+        if(!isOverMax){
+            return(<button onClick={onSubmit}>Validate</button>)
+        } 
+        return(<button className="button_next" onClick={onClickNext}>Next</button>)
+    }
+
 
     return (
         <section className="Form">
-            <Parcours index={index} />
+            <div className="Form_Header">
+                <h1>Create Employee</h1>
+                <Parcours index={index} />
+            </div>
             <form className="Form_form" ref={ref}>
                 <fieldset className="Form_form_section">
+                    <h2>Personal Information</h2>
                     <div className="inputCustom">
                         <input
                             className="inputCustom_input"
@@ -104,13 +127,14 @@ const Form = () => {
                     </div>
                 </fieldset>
                 <fieldset className="Form_form_section">
+                    <h2>Adress</h2>
                     <div className="inputCustom">
                         <input
                             className="inputCustom_input"
                             type="text"
                             id="street"
                             name="street"
-                            value={personalInformation.street}
+                            value={adress.street}
                             onChange={onChangeAdresse}
                             required
                         />
@@ -122,7 +146,7 @@ const Form = () => {
                             type="text"
                             id="city"
                             name="city"
-                            value={personalInformation.city}
+                            value={adress.city}
                             onChange={onChangeAdresse}
                             required
                         />
@@ -134,7 +158,7 @@ const Form = () => {
                             type="text"
                             id="state"
                             name="state"
-                            value={personalInformation.state}
+                            value={adress.state}
                             onChange={onChangeAdresse}
                             required
                         />
@@ -146,7 +170,7 @@ const Form = () => {
                             type="text"
                             id="zipCode"
                             name="zipCode"
-                            value={personalInformation.zipCode}
+                            value={adress.zipCode}
                             onChange={onChangeAdresse}
                             required
                         />
@@ -154,11 +178,15 @@ const Form = () => {
                     </div>
                 </fieldset>
                 <fieldset className="Form_form_section">
+                    <h2>WorkFlow</h2>
                     <div className="inputCustom">
                         <input
                             className="inputCustom_input"
-                            type="text"
+                            type="date"
                             id="startDate"
+                            name="startDate"
+                            value={workInformation.startDate}
+                            onChange={onChangeWorkInformation}
                             required
                         />
                         <label className="inputCustom_label">Start Date</label>
@@ -168,19 +196,39 @@ const Form = () => {
                             className="inputCustom_input"
                             type="text"
                             id="departement"
+                            name="departement"
+                            value={workInformation.departement}
+                            onChange={onChangeWorkInformation}
                             required
                         />
                         <label className="inputCustom_label">Departement</label>
                     </div>
                 </fieldset>
                 <fieldset className="Form_form_section">
-                    <p>recap</p>
-                    <button onClick={onSubmit}>Ajouter</button>
+                    <h2>Summary</h2>
+                    <div>
+                    <h3>Personal Information</h3>
+                    <p>First Name : {personalInformation.firstName}</p>
+                    <p>Last Name : {personalInformation.lastName}</p>
+                    <p>Birthday : {personalInformation.dateOfBirthday}</p>
+                    </div>
+                    <div>
+                    <h3>Adress</h3>
+                    <p>Street : {adress.street}</p>
+                    <p>City : {adress.city}</p>
+                    <p>State : {adress.state}</p>
+                    <p>Zip code : {adress.zipCode}</p>
+                    </div>
+                    <div>
+                    <h3>WorkFlow</h3>
+                    <p>Start Date : {workInformation.startDate}</p>
+                    <p>Departement : {workInformation.departement}</p>
+                    </div>
                 </fieldset>
             </form>
             <div className="buttons">
                 <button className="button_prec" onClick={onClickPrec}>Prec</button>
-                <button className="button_next" onClick={onClickNext}>Next</button>
+                {displaysValidate}
             </div>
 
         </section>
