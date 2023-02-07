@@ -28,16 +28,22 @@ const Form = () => {
     })
 
     const onChangePersonalInformation = (e) => {    
-        console.log(e.target.name)
-        console.log(e.target.value)
         setPersonalInformation({
             ...personalInformation,
             [e.target.name] : e.target.value //Quand on passe dans onchange on fusionne l'ancien etat avec la nouveauté
           })
     } 
 
+    const onChangeAdresse = (e) => {    
+        setAdresse({
+            ...adress,
+            [e.target.name] : e.target.value
+          })
+    } 
+
     const onSubmit = () => {
         console.log(personalInformation)
+        console.log(adress)
     }
 
     const onClickNext = () => {
@@ -103,6 +109,9 @@ const Form = () => {
                             className="inputCustom_input"
                             type="text"
                             id="street"
+                            name="street"
+                            value={personalInformation.street}
+                            onChange={onChangeAdresse}
                             required
                         />
                         <label className="inputCustom_label">Street</label>
@@ -112,6 +121,9 @@ const Form = () => {
                             className="inputCustom_input"
                             type="text"
                             id="city"
+                            name="city"
+                            value={personalInformation.city}
+                            onChange={onChangeAdresse}
                             required
                         />
                         <label className="inputCustom_label">City</label>
@@ -121,6 +133,9 @@ const Form = () => {
                             className="inputCustom_input"
                             type="text"
                             id="state"
+                            name="state"
+                            value={personalInformation.state}
+                            onChange={onChangeAdresse}
                             required
                         />
                         <label className="inputCustom_label">State</label>
@@ -130,6 +145,9 @@ const Form = () => {
                             className="inputCustom_input"
                             type="text"
                             id="zipCode"
+                            name="zipCode"
+                            value={personalInformation.zipCode}
+                            onChange={onChangeAdresse}
                             required
                         />
                         <label className="inputCustom_label">Zip Code</label>
