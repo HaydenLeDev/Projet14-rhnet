@@ -72,11 +72,11 @@ const Form = () => {
         }
     }
 
-    const displaysValidate = () => {
-        if(!isOverMax){
-            return(<button onClick={onSubmit}>Validate</button>)
-        } 
-        return(<button className="button_next" onClick={onClickNext}>Next</button>)
+    const displaysNextOrValidate = () => {
+        if (isOverMax) {
+            return (<button className="button_next" onClick={onSubmit}>Validate</button>)
+        }
+        return (<button className="button_next" onClick={onClickNext}>Next</button>)
     }
 
 
@@ -153,15 +153,19 @@ const Form = () => {
                         <label className="inputCustom_label">City</label>
                     </div>
                     <div className="inputCustom">
-                        <input
-                            className="inputCustom_input"
+                        <select
+                            className="inputCustom_input inputCustom_select"
                             type="text"
                             id="state"
                             name="state"
                             value={adress.state}
                             onChange={onChangeAdresse}
-                            required
-                        />
+                            required>
+                            <option value="France">France</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Suisse">Suisse</option>
+                            <option value="Canada">Canada</option>
+                        </select>
                         <label className="inputCustom_label">State</label>
                     </div>
                     <div className="inputCustom">
@@ -192,43 +196,47 @@ const Form = () => {
                         <label className="inputCustom_label">Start Date</label>
                     </div>
                     <div className="inputCustom">
-                        <input
-                            className="inputCustom_input"
+                        <select
+                            className="inputCustom_input inputCustom_select"
                             type="text"
                             id="departement"
                             name="departement"
                             value={workInformation.departement}
                             onChange={onChangeWorkInformation}
-                            required
-                        />
+                            required>
+                            <option value="Sales">Sales</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Human Resources">Human Resources</option>
+                            <option value="Legal">Legal</option>
+                        </select>
                         <label className="inputCustom_label">Departement</label>
                     </div>
                 </fieldset>
                 <fieldset className="Form_form_section">
                     <h2>Summary</h2>
                     <div>
-                    <h3>Personal Information</h3>
-                    <p>First Name : {personalInformation.firstName}</p>
-                    <p>Last Name : {personalInformation.lastName}</p>
-                    <p>Birthday : {personalInformation.dateOfBirthday}</p>
+                        <h3>Personal Information</h3>
+                        <p>First Name : {personalInformation.firstName}</p>
+                        <p>Last Name : {personalInformation.lastName}</p>
+                        <p>Birthday : {personalInformation.dateOfBirthday}</p>
                     </div>
                     <div>
-                    <h3>Adress</h3>
-                    <p>Street : {adress.street}</p>
-                    <p>City : {adress.city}</p>
-                    <p>State : {adress.state}</p>
-                    <p>Zip code : {adress.zipCode}</p>
+                        <h3>Adress</h3>
+                        <p>Street : {adress.street}</p>
+                        <p>City : {adress.city}</p>
+                        <p>State : {adress.state}</p>
+                        <p>Zip code : {adress.zipCode}</p>
                     </div>
                     <div>
-                    <h3>WorkFlow</h3>
-                    <p>Start Date : {workInformation.startDate}</p>
-                    <p>Departement : {workInformation.departement}</p>
+                        <h3>WorkFlow</h3>
+                        <p>Start Date : {workInformation.startDate}</p>
+                        <p>Departement : {workInformation.departement}</p>
                     </div>
                 </fieldset>
             </form>
             <div className="buttons">
                 <button className="button_prec" onClick={onClickPrec}>Prec</button>
-                {displaysValidate}
+                {displaysNextOrValidate()}
             </div>
 
         </section>
