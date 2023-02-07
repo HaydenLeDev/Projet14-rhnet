@@ -8,8 +8,38 @@ const Form = () => {
     const isOverMax = index >= 4
     const isLessMin = index <= 1
     const ref = useRef(null);
-    console.log(index)
     
+    const [personalInformation, setPersonalInformation] = useState({
+        firstName: "",
+        lastName: "",
+        dateOfBirthday:""
+    })
+
+    const [adress, setAdresse] = useState({
+        street: "",
+        city:"",
+        state: "",
+        zipCode: ""
+    })
+
+    const [workInformation, setWorkInformation] = useState({
+        startDate: "",
+        departement: "",
+    })
+
+    const onChangePersonalInformation = (e) => {    
+        console.log(e.target.name)
+        console.log(e.target.value)
+        setPersonalInformation({
+            ...personalInformation,
+            [e.target.name] : e.target.value //Quand on passe dans onchange on fusionne l'ancien etat avec la nouveauté
+          })
+    } 
+
+    const onSubmit = () => {
+        console.log(personalInformation)
+    }
+
     const onClickNext = () => {
         if(!isOverMax){
             setIndex(index + 1)
@@ -24,6 +54,7 @@ const Form = () => {
         }
     }
 
+
     return (
         <section className="Form">
             <Parcours index={index} />
@@ -34,6 +65,9 @@ const Form = () => {
                             className="inputCustom_input"
                             type="text"
                             id="firstName"
+                            name="firstName"
+                            value={personalInformation.firstName}
+                            onChange={onChangePersonalInformation}
                             required
                         />
                         <label className="inputCustom_label">First Name</label>
@@ -43,6 +77,9 @@ const Form = () => {
                             className="inputCustom_input"
                             type="text"
                             id="lastName"
+                            name="lastName"
+                            value={personalInformation.lastName}
+                            onChange={onChangePersonalInformation}
                             required
                         />
                         <label className="inputCustom_label">Last Name</label>
@@ -52,6 +89,9 @@ const Form = () => {
                             className="inputCustom_input"
                             type="date"
                             id="birthday"
+                            name="dateOfBirthday"
+                            value={personalInformation.dateOfBirthday}
+                            onChange={onChangePersonalInformation}
                             required
                         />
                         <label className="inputCustom_label">Date of Birthday</label>
@@ -117,7 +157,7 @@ const Form = () => {
                 </fieldset>
                 <fieldset className="Form_form_section">
                     <p>recap</p>
-                    <button>Ajouter</button>
+                    <button onClick={onSubmit}>Ajouter</button>
                 </fieldset>
             </form>
             <div className="buttons">
