@@ -235,7 +235,7 @@ const Form = () => {
                 </fieldset>
             </form>
             <div className="buttons">
-                <button className="button_prec" onClick={onClickPrec}>Prec</button>
+                <button className="button_prec" onClick={onClickPrec}>Return</button>
                 {displaysNextOrValidate()}
             </div>
 
