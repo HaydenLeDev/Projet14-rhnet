@@ -41,12 +41,12 @@
         position: absolute;
         top: 21px;
         left: 16px;
-        padding: 0px 8px 0px 8px;
-        height: 20px;
+        padding: 0px 9px 0px 8px;
+        height: 25px;
         background-color: $white-color;
         color: $main-color-neutre;
         transition: all 0.27s ease-in-out;
-        z-index: 1;
+        z-index: 0;
     }
 
     &_input{
@@ -56,7 +56,7 @@
         background-color: transparent;
         border-radius: 5px;
         padding-left: 16px;
-        z-index: 3;
+        z-index: 10;
         color: $main-color-neutre;
         font-size: $paragraphe-font-size;
         &:focus{

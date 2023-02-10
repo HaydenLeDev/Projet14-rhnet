@@ -121,6 +121,7 @@ const Form = () => {
                             name="dateOfBirthday"
                             value={personalInformation.dateOfBirthday}
                             onChange={onChangePersonalInformation}
+                            placeholder=" "
                             required
                         />
                         <label className="inputCustom_label">Date of Birthday</label>
