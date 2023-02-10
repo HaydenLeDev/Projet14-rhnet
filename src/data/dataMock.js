@@ -2,7 +2,7 @@ export var EMPLOYEE = [
     {
         id: 0,
         userInfos:{
-            fistName: "Tony",
+            firstName: "Tony",
             lastName: "Stark",
             DateBirthday: "03-12-95"
         },
@@ -16,9 +16,9 @@ export var EMPLOYEE = [
         StartDate:"25-02-23"
     },
     {
-        id: 0,
+        id: 1,
         userInfos:{
-            fistName: "Tony",
+            firstName: "Tony",
             lastName: "Stark",
             DateBirthday: "03-12-95"
         },
@@ -32,3 +32,8 @@ export var EMPLOYEE = [
         StartDate:"25-02-23"
     }
 ]
+
+export const addEmployee = (employee) => {
+    EMPLOYEE.push(employee)
+    
+}
