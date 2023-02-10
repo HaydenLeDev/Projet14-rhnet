@@ -1,0 +1,65 @@
+@import "../../style/colors";
+@import "../../style/font";
+
+.Table {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding-bottom: 16px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.Table_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px 16px 16px;
+
+    &_filtres {
+        display: flex;
+    }
+}
+
+.Table_table {
+    width: 100%;
+    font-size: 11px;
+
+    &_thead {
+        font-size: $paragraphe-font-size;
+        padding: 24px 0px 24px 0px;
+        
+        & th {
+            width: 120px;
+        }
+    }
+
+    &_body {
+        &_line {
+            height: 35px;
+            text-align: left;
+            &_element {
+                padding-left: 16px;
+            }
+        }
+    }
+}
+
+.Table_footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 24px 0px 16px;
+    &_gestionPage {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        &_button {
+            border: none;
+            background-color: $main-color-neutre;
+            width: 15px;
+            height: 15px;
+            border-radius: 5px;
+            &_prec {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}

@@ -1,15 +1,15 @@
 const ItemTable = ({employee}) => {
     return (
-        <tr>
-            <th>{employee.userInfos.firstName}</th>
-            <th>{employee.userInfos.lastName}</th>
-            <th>{employee.StartDate}</th>
-            <th>{employee.Departement}</th>
-            <th>{employee.userInfos.DateBirthday}</th>
-            <th>{employee.Adress.Street}</th>
-            <th>{employee.Adress.City}</th>
-            <th>{employee.Adress.State}</th>
-            <th>{employee.Adress.ZipCode}</th>
+        <tr className="Table_table_body_line">
+            <th className="Table_table_body_line_element">{employee.userInfos.firstName}</th>
+            <th className="Table_table_body_line_element">{employee.userInfos.lastName}</th>
+            <th className="Table_table_body_line_element">{employee.StartDate}</th>
+            <th className="Table_table_body_line_element">{employee.Departement}</th>
+            <th className="Table_table_body_line_element">{employee.userInfos.DateBirthday}</th>
+            <th className="Table_table_body_line_element">{employee.Adress.Street}</th>
+            <th className="Table_table_body_line_element">{employee.Adress.City}</th>
+            <th className="Table_table_body_line_element">{employee.Adress.State}</th>
+            <th className="Table_table_body_line_element">{employee.Adress.ZipCode}</th>
         </tr>
     )
 }
