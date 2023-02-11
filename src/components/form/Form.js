@@ -27,6 +27,12 @@ const Form = () => {
         departement: "",
     })
 
+    const [newEmployee, setNewEmployee] = useState({
+        personalInformation: [],
+        adress: [],
+        workInformation: []
+    })
+
     const onChangePersonalInformation = (e) => {
         e.target.classList.add('isClicked')
         setPersonalInformation({
@@ -51,11 +57,25 @@ const Form = () => {
         })
     }
 
+    const isCompleted = () => {
+        if (personalInformation.firstName === "" || personalInformation.lastName === "" || personalInformation.dateOfBirthday === ""){
+            return false
+        }
+        if (adress.city === "" || adress.state === "" || adress.street === "" || adress.zipCode === ""){
+            return false
+        }
+        if (workInformation.departement === "" || workInformation.startDate === ""){
+            return false
+        }
+        return true
+    }
+
     const onSubmit = (e) => {
         e.preventDefault()
-        console.log(personalInformation)
-        console.log(adress)
-        console.log(workInformation)
+        if(isCompleted()){
+            setNewEmployee(personalInformation, adress, workInformation)
+            console.log(newEmployee)
+        }
     }
 
     const onClickNext = () => {
@@ -78,7 +98,6 @@ const Form = () => {
         }
         return (<button className="button_next" onClick={onClickNext}>Next</button>)
     }
-
 
     return (
         <section className="Form">
@@ -207,6 +226,7 @@ const Form = () => {
                             required>
                             <option value="Sales">Sales</option>
                             <option value="Marketing">Marketing</option>
+                            <option value="Marketing">Engineering</option>
                             <option value="Human Resources">Human Resources</option>
                             <option value="Legal">Legal</option>
                         </select>
