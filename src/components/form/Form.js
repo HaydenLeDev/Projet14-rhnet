@@ -27,12 +27,6 @@ const Form = () => {
         departement: "",
     })
 
-    const [newEmployee, setNewEmployee] = useState({
-        personalInformation: [],
-        adress: [],
-        workInformation: []
-    })
-
     const onChangePersonalInformation = (e) => {
         e.target.classList.add('isClicked')
         setPersonalInformation({
@@ -73,8 +67,16 @@ const Form = () => {
     const onSubmit = (e) => {
         e.preventDefault()
         if(isCompleted()){
-            setNewEmployee(personalInformation, adress, workInformation)
-            console.log(newEmployee)
+            console.log(personalInformation)
+            console.log(adress)
+            console.log(workInformation)
+            let user = {
+                id: 45,
+                personalInformation,
+                adress,
+                workInformation
+            }
+            console.log(user)
         }
     }
 
