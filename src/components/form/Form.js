@@ -1,7 +1,6 @@
 import { useState, useRef } from "react"
 import "./Form.scss"
 import Parcours from "./parcours/Parcours"
-
 const Form = () => {
 
     const [index, setIndex] = useState(1)
@@ -261,7 +260,6 @@ const Form = () => {
                 <button className="button_prec" onClick={onClickPrec}>Return</button>
                 {displaysNextOrValidate()}
             </div>
-
         </section>
     )
 }
