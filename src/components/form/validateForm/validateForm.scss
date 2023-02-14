@@ -1,7 +1,55 @@
-@import '../../../style/colors';
+@import "../../../style/colors";
 
-.validateForm{
+.validateForm {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 320px;
+    height: 84px;
+    overflow: hidden;
     position: absolute;
-    right: 200px ;
-    background-color: aqua;
+    right: 20px;
+    top: 20px;
+    background-color: $white-color;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+
+    &_v {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100px;
+        background-color: $validate-color;
+        border-radius: 10px 0px 0px 10px;
+        z-index: 1;
+        & i {
+            color: white;
+            font-size: 28px;
+        }
+    }
+
+    & p {
+        background-color: $white-color;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        z-index: 3;
+        width: 0%;
+    }
+
+    &:hover > .validateForm_v {
+        width: 25%;
+        transition: ease-in-out 0.8s;
+    }
+
+    &:hover > p {
+        width: 80%;
+        transition: ease-in-out 0.8s;
+    }
+
+    &:hover > i {
+        rotate: 360deg;
+        transition: ease-in-out 0.8s;
+    }
 }

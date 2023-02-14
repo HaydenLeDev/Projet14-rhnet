@@ -3,9 +3,10 @@ import "./ValidateForm.scss"
 const ValidateFrom = () => {
     return(
         <div className="validateForm">
-            TEST
-            <i class='fas fa-check-circle'></i>
-
+            <div className="validateForm_v">
+                <i className='fas fa-check-circle'></i>
+            </div>
+            <p>Employee create !</p>
         </div>
     )
 }
