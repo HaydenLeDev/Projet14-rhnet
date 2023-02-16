@@ -1,4 +1,6 @@
 import { useState, useRef } from "react"
+import { useDispatch } from "react-redux"
+import { addEmployee } from "../../feature/employes.slice"
 import "./Form.scss"
 import Parcours from "./parcours/Parcours"
 const Form = ({setIsValidate}) => {
@@ -7,6 +9,7 @@ const Form = ({setIsValidate}) => {
     const isOverMax = index >= 4
     const isLessMin = index <= 1
     const ref = useRef(null);
+    const dispatch = useDispatch()
 
     const [personalInformation, setPersonalInformation] = useState({
         firstName: "",
@@ -64,6 +67,7 @@ const Form = ({setIsValidate}) => {
     }
 
     const resetForm = () => {
+        setTimeout(() => {
         personalInformation.firstName = ""
         personalInformation.lastName = ""
         personalInformation.dateOfBirthday = ""
@@ -73,24 +77,24 @@ const Form = ({setIsValidate}) => {
         adress.zipCode = ""
         workInformation.departement= ""
         workInformation.startDate= ""
-
         setIndex(1)
         ref.current.style.transform = `translate(${990}px, ${0}px)`
+        }, 1500);
     }
 
     const onSubmit = (e) => {
         e.preventDefault()
         if(isCompleted()){
-            const user = {
-                id: 45,
+            let data = {
+                id: 10,
                 personalInformation,
                 adress,
                 workInformation
             }
-            console.log(user)
+            dispatch(addEmployee(data))
+            console.log(data)
             setIsValidate(true)
             resetForm()
-
         }
     }
 
