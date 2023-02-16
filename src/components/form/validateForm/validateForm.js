@@ -1,12 +1,17 @@
 import "./ValidateForm.scss"
 
-const ValidateFrom = () => {
+const ValidateFrom = ({isValidate}) => {
+    const classValidateForm =  isValidate ? "validateForm validateForm_actif" : "validateForm"
+    
     return(
-        <div className="validateForm">
+        <div className={classValidateForm}>
             <div className="validateForm_v">
                 <i className='fas fa-check-circle'></i>
             </div>
-            <p>Employee create !</p>
+            <div className="validateForm_info">
+                <p>Employee create !</p>
+                <button className="validateForm_info_close"><i className="material-icons">close</i></button>
+            </div>
         </div>
     )
 }

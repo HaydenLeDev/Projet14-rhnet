@@ -5,7 +5,7 @@ const NewEmployee = () => {
     return(
         <main>
             <Form />
-            <ValidateFrom/>
+            <ValidateFrom isValidate={false}/>
         </main>
     )
 }

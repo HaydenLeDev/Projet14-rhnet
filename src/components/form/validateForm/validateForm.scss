@@ -8,7 +8,7 @@
     height: 84px;
     overflow: hidden;
     position: absolute;
-    right: 20px;
+    right: -500px;
     top: 20px;
     background-color: $white-color;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.06);
@@ -24,32 +24,47 @@
         border-radius: 10px 0px 0px 10px;
         z-index: 1;
         & i {
-            color: white;
+            color: $white-color;
             font-size: 28px;
         }
     }
 
-    & p {
+    &_info {
+        position: relative;
         background-color: $white-color;
         display: flex;
         align-items: center;
+        padding-right: 16px;
         height: 100%;
         z-index: 3;
         width: 0%;
+
+        &_close{
+            position: absolute;
+            background-color: transparent;
+            border: none;
+            right: 8px;
+            top: 8px;
+            
+        }
     }
 
-    &:hover > .validateForm_v {
+    &_actif > .validateForm_v {
         width: 25%;
         transition: ease-in-out 0.8s;
     }
 
-    &:hover > p {
-        width: 80%;
+    &_actif > .validateForm_info {
+        width: calc(75% - 16px);
         transition: ease-in-out 0.8s;
     }
 
-    &:hover > i {
-        rotate: 360deg;
+    &_actif{
+        right: 20px;
         transition: ease-in-out 0.8s;
     }
+}
+
+.material-icons{
+    color: $main-color-fonce
 }
