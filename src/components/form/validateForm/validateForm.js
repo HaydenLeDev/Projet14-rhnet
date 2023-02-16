@@ -1,12 +1,17 @@
-import { useState } from "react"
 import "./ValidateForm.scss"
 
-const ValidateFrom = ({validate}) => {
-    const [isValidate, setIsValidate] = useState(validate)
-    const classValidateForm =  isValidate ? "validateForm validateForm_actif" : "validateForm"
-    
+const ValidateFrom = ({isValidate , setIsValidate, autoClose}) => {
+
+    const classValidateForm =  isValidate ? "validateForm validateForm_actif" : "validateForm validateForm_nonactif"
+
     const onClick = () => {
         setIsValidate(false)
+    }
+
+    if(isValidate && autoClose){
+        setTimeout(() => {
+            setIsValidate(false);
+          }, 5000);
     }
 
 

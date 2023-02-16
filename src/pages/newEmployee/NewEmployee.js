@@ -4,12 +4,12 @@ import ValidateFrom from "../../components/form/validateForm/ValidateForm"
 
 const NewEmployee = () => {
 
-    const [validate, setValidate] = useState(true)
+    const [isValidate, setIsValidate] = useState(false)
 
     return(
         <main>
-            <Form />
-            <ValidateFrom validate={validate} setValidate={setValidate}/>
+            <Form isValidate={isValidate} setIsValidate={setIsValidate}/>
+            <ValidateFrom isValidate={isValidate} setIsValidate={setIsValidate} autoClose={true}/>
         </main>
     )
 }

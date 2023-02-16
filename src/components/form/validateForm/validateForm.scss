@@ -18,7 +18,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        width: 25%;
         height: 100px;
         background-color: $validate-color;
         border-radius: 10px 0px 0px 10px;
@@ -37,8 +37,7 @@
         padding-right: 16px;
         height: 100%;
         z-index: 3;
-        width: 0%;
-
+        width: calc(75% - 16px);
         &_close{
             position: absolute;
             background-color: transparent;
@@ -49,22 +48,28 @@
         }
     }
 
-    &_actif > .validateForm_v {
-        width: 25%;
-        transition: ease-in-out 0.8s;
-    }
-
-    &_actif > .validateForm_info {
-        width: calc(75% - 16px);
-        transition: ease-in-out 0.8s;
-    }
-
     &_actif{
         right: 20px;
+        transition: ease-in-out 0.8s;
+    }
+
+    &_nonactif{
+        right: -550px;
         transition: ease-in-out 0.8s;
     }
 }
 
 .material-icons{
     color: $main-color-fonce
+}
+
+@keyframes appearance {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+        display: flex;
+    }
 }

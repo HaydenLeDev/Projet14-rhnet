@@ -1,7 +1,7 @@
 import { useState, useRef } from "react"
 import "./Form.scss"
 import Parcours from "./parcours/Parcours"
-const Form = () => {
+const Form = ({setIsValidate}) => {
 
     const [index, setIndex] = useState(1)
     const isOverMax = index >= 4
@@ -76,6 +76,8 @@ const Form = () => {
                 workInformation
             }
             console.log(user)
+            setIsValidate(true)
+            ref.current.reset()
         }
     }
 
