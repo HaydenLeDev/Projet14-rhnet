@@ -63,13 +63,25 @@ const Form = ({setIsValidate}) => {
         return true
     }
 
+    const resetForm = () => {
+        personalInformation.firstName = ""
+        personalInformation.lastName = ""
+        personalInformation.dateOfBirthday = ""
+        adress.city = ""
+        adress.state = ""
+        adress.street = ""
+        adress.zipCode = ""
+        workInformation.departement= ""
+        workInformation.startDate= ""
+
+        setIndex(1)
+        ref.current.style.transform = `translate(${990}px, ${0}px)`
+    }
+
     const onSubmit = (e) => {
         e.preventDefault()
         if(isCompleted()){
-            console.log(personalInformation)
-            console.log(adress)
-            console.log(workInformation)
-            let user = {
+            const user = {
                 id: 45,
                 personalInformation,
                 adress,
@@ -77,7 +89,8 @@ const Form = ({setIsValidate}) => {
             }
             console.log(user)
             setIsValidate(true)
-            ref.current.reset()
+            resetForm()
+
         }
     }
 

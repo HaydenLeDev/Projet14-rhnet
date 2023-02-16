@@ -1,21 +1,20 @@
 import "./ValidateForm.scss"
 
-const ValidateFrom = ({isValidate , setIsValidate, autoClose}) => {
+const ValidateFrom = ({ isValidate, setIsValidate, autoClose }) => {
 
-    const classValidateForm =  isValidate ? "validateForm validateForm_actif" : "validateForm validateForm_nonactif"
+    const classValidateForm = isValidate ? "validateForm validateForm_actif" : "validateForm validateForm_nonactif"
 
     const onClick = () => {
         setIsValidate(false)
     }
 
-    if(isValidate && autoClose){
+    if (isValidate && autoClose) {
         setTimeout(() => {
             setIsValidate(false);
-          }, 5000);
+        }, 5000);
     }
 
-
-    return(
+    return (
         <div className={classValidateForm}>
             <div className="validateForm_v">
                 <i className='fas fa-check-circle'></i>
