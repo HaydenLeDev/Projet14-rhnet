@@ -62,14 +62,3 @@
 .material-icons{
     color: $main-color-fonce
 }
-
-@keyframes appearance {
-    0%{
-        opacity: 0;
-    }
-
-    100%{
-        opacity: 1;
-        display: flex;
-    }
-}
