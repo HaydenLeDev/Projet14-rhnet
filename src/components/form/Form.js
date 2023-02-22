@@ -1,10 +1,10 @@
 import { useState, useRef } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { addEmployee } from "../../feature/employes.slice"
 import "./Form.scss"
 import Parcours from "./parcours/Parcours"
 const Form = ({setIsValidate}) => {
-
+    const employees = useSelector((state) => state.employees.employees)
     const [index, setIndex] = useState(1)
     const isOverMax = index >= 4
     const isLessMin = index <= 1
@@ -86,10 +86,20 @@ const Form = ({setIsValidate}) => {
         e.preventDefault()
         if(isCompleted()){
             let data = {
-                id: 10,
-                personalInformation,
-                adress,
-                workInformation
+                id: employees.length,
+                userInfos:{
+                    firstName: personalInformation.firstName,
+                    lastName: personalInformation.lastName,
+                    DateBirthday: personalInformation.dateOfBirthday,
+                },
+                Adress:{
+                    Street: adress.street,
+                    City: adress.city,
+                    State: adress.state,
+                    ZipCode: adress.zipCode
+                },
+                Departement : workInformation.departement,
+                StartDate: workInformation.startDate
             }
             dispatch(addEmployee(data))
             console.log(data)
