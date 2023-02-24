@@ -17,10 +17,22 @@ const Table = () => {
             <div className="Table_header">
                 <h1 className="Table_header_titre">Current Employee</h1>
                 <div className="Table_header_filtres">
-                    <button>Recherche</button>
-                    <button>Filtre</button>
-                    <div>Items display <button>10</button></div>
-                    <button>Filtre</button>
+                    <div className="Table_header_filtres_research">
+                        <i className="Table_header_filtres_research_icone fas fa-search"></i>
+                        <input className="Table_header_filtres_research_input" type="text" placeholder="Recherche"></input>
+                    </div>
+                    <div className="Table_header_filtres_filtre">
+                        <div className="Table_header_filtres_filtre_line"></div>
+                        <div className="Table_header_filtres_filtre_line"></div>
+                        <div className="Table_header_filtres_filtre_line"></div>
+                    </div>
+                    <div className="Table_header_filtres_number">Items display 
+                    <select className="Table_header_filtres_number_select" type="number">
+                        <option value="10">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    </div>
                 </div>
             </div>
             <table className="Table_table">
@@ -44,9 +56,9 @@ const Table = () => {
             <div className="Table_footer">
                 <div>Showing {employees.length} of {employees.length} items</div>
                 <div className="Table_footer_gestionPage">
-                    <button className="Table_footer_gestionPage_button Table_footer_gestionPage_button_prec"></button>
+                    <button className="Table_footer_gestionPage_button Table_footer_gestionPage_button_prec fas fa-angle-left"></button>
                     <p>1</p>
-                    <button className="Table_footer_gestionPage_button"></button>
+                    <button className="Table_footer_gestionPage_button fas fa-angle-right"></button>
                 </div>
             </div>
         </section>

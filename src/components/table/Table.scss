@@ -19,7 +19,50 @@
 
     &_filtres {
         display: flex;
+        align-items: center;
         gap: 8px;
+
+        &_research{
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-left: 8px;
+            border-radius: 3px;
+            border: $main-color-neutre 2px solid;
+
+            &_icone{
+                position: absolute;
+                color: $main-color-neutre
+            }
+
+            &_input{
+                padding: 8px 0px 8px 24px;
+                border: none;
+            }
+        }
+
+        &_filtre{
+            border: $main-color-neutre 2px solid;
+            padding: 5px;
+            border-radius: 3px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            &_line{
+                height: 4px;
+                width: 24px;
+                border-radius: 100px;
+                background-color: $main-color-neutre;
+            }
+        }
+
+        &_number{
+            border: $main-color-neutre 2px solid;
+            border-radius: 3px;
+            padding: 6px 8px 6px 8px;
+            display: flex;
+            gap: 8px;
+        }
     }
 }
 
@@ -63,9 +106,6 @@
             width: 15px;
             height: 15px;
             border-radius: 5px;
-            &_prec {
-                transform: rotate(180deg);
-            }
         }
     }
 }
