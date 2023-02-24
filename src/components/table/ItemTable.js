@@ -1,4 +1,9 @@
-const ItemTable = ({employee}) => {
+/**
+ * Create an employee table row.
+ * @param {*} employee
+ * @returns a table row
+ */
+const ItemTable = ({ employee }) => {
     return (
         <tr className="Table_table_body_line">
             <th className="Table_table_body_line_element">{employee.userInfos.firstName}</th>

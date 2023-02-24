@@ -7,18 +7,21 @@ import { useDispatch } from "react-redux"
 import { setEmployeesData } from "./feature/employes.slice"
 import { EMPLOYEE } from "./data/dataMock"
 
-
+/**
+ * Router from my app
+ * @returns the road component
+ */
 const App = () => {
   const dispatch = useDispatch()
   dispatch(setEmployeesData(EMPLOYEE))
-  
+
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
         <Routes>
           <Route path="/*" element={<NewEmployee />} />
-          <Route path="/currentEmployee" element={<CurrentEmployee />}/>
+          <Route path="/currentEmployee" element={<CurrentEmployee />} />
         </Routes>
       </BrowserRouter>
     </div>

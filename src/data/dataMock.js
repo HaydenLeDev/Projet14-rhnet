@@ -1,167 +1,167 @@
 export var EMPLOYEE = [
     {
         id: 0,
-        userInfos:{
+        userInfos: {
             firstName: "Tony",
             lastName: "Stark",
             DateBirthday: "03-12-95"
         },
-        Adress:{
+        Adress: {
             Street: "1500 Rue des avengers",
             City: "New York",
             State: "Etats-Unis",
             ZipCode: "1180"
         },
-        Departement : "Marketing",
-        StartDate:"25-02-23"
+        Departement: "Marketing",
+        StartDate: "25-02-23"
     },
     {
         id: 1,
-        userInfos:{
+        userInfos: {
             firstName: "Tony",
             lastName: "Stark",
             DateBirthday: "03-12-95"
         },
-        Adress:{
+        Adress: {
             Street: "1500 Rue des avengers",
             City: "New York",
             State: "Etats-Unis",
             ZipCode: "1180"
         },
-        Departement : "Marketing",
-        StartDate:"25-02-23"
+        Departement: "Marketing",
+        StartDate: "25-02-23"
     },
     {
         id: 2,
-        userInfos:{
+        userInfos: {
             firstName: "Tony",
             lastName: "Stark",
             DateBirthday: "03-12-95"
         },
-        Adress:{
+        Adress: {
             Street: "1500 Rue des avengers",
             City: "New York",
             State: "Etats-Unis",
             ZipCode: "1180"
         },
-        Departement : "Marketing",
-        StartDate:"25-02-23"
+        Departement: "Marketing",
+        StartDate: "25-02-23"
     },
     {
         id: 3,
-        userInfos:{
+        userInfos: {
             firstName: "Tony",
             lastName: "Stark",
             DateBirthday: "03-12-95"
         },
-        Adress:{
+        Adress: {
             Street: "1500 Rue des avengers",
             City: "New York",
             State: "Etats-Unis",
             ZipCode: "1180"
         },
-        Departement : "Marketing",
-        StartDate:"25-02-23"
+        Departement: "Marketing",
+        StartDate: "25-02-23"
     },
     {
         id: 4,
-        userInfos:{
+        userInfos: {
             firstName: "Tony",
             lastName: "Stark",
             DateBirthday: "03-12-95"
         },
-        Adress:{
+        Adress: {
             Street: "1500 Rue des avengers",
             City: "New York",
             State: "Etats-Unis",
             ZipCode: "1180"
         },
-        Departement : "Marketing",
-        StartDate:"25-02-23"
+        Departement: "Marketing",
+        StartDate: "25-02-23"
     },
     {
         id: 5,
-        userInfos:{
+        userInfos: {
             firstName: "Tony",
             lastName: "Stark",
             DateBirthday: "03-12-95"
         },
-        Adress:{
+        Adress: {
             Street: "1500 Rue des avengers",
             City: "New York",
             State: "Etats-Unis",
             ZipCode: "1180"
         },
-        Departement : "Marketing",
-        StartDate:"25-02-23"
+        Departement: "Marketing",
+        StartDate: "25-02-23"
     },
     {
         id: 6,
-        userInfos:{
+        userInfos: {
             firstName: "Tony",
             lastName: "Stark",
             DateBirthday: "03-12-95"
         },
-        Adress:{
+        Adress: {
             Street: "1500 Rue des avengers",
             City: "New York",
             State: "Etats-Unis",
             ZipCode: "1180"
         },
-        Departement : "Marketing",
-        StartDate:"25-02-23"
+        Departement: "Marketing",
+        StartDate: "25-02-23"
     },
     {
         id: 7,
-        userInfos:{
+        userInfos: {
             firstName: "Tony",
             lastName: "Stark",
             DateBirthday: "03-12-95"
         },
-        Adress:{
+        Adress: {
             Street: "1500 Rue des avengers",
             City: "New York",
             State: "Etats-Unis",
             ZipCode: "1180"
         },
-        Departement : "Marketing",
-        StartDate:"25-02-23"
+        Departement: "Marketing",
+        StartDate: "25-02-23"
     },
     {
         id: 8,
-        userInfos:{
+        userInfos: {
             firstName: "Tony",
             lastName: "Stark",
             DateBirthday: "03-12-95"
         },
-        Adress:{
+        Adress: {
             Street: "1500 Rue des avengers",
             City: "New York",
             State: "Etats-Unis",
             ZipCode: "1180"
         },
-        Departement : "Marketing",
-        StartDate:"25-02-23"
+        Departement: "Marketing",
+        StartDate: "25-02-23"
     },
     {
         id: 9,
-        userInfos:{
+        userInfos: {
             firstName: "Tony",
             lastName: "Stark",
             DateBirthday: "03-12-95"
         },
-        Adress:{
+        Adress: {
             Street: "1500 Rue des avengers",
             City: "New York",
             State: "Etats-Unis",
             ZipCode: "1180"
         },
-        Departement : "Marketing",
-        StartDate:"25-02-23"
+        Departement: "Marketing",
+        StartDate: "25-02-23"
     }
 ]
 
 export const addEmployee = (employee) => {
     EMPLOYEE.push(employee)
-    
+
 }

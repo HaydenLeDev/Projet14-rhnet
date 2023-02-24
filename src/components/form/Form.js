@@ -3,7 +3,14 @@ import { useDispatch, useSelector } from "react-redux"
 import { addEmployee } from "../../feature/employes.slice"
 import "./Form.scss"
 import Parcours from "./parcours/Parcours"
-const Form = ({setIsValidate}) => {
+
+
+/**
+ * Contains our form, checks that the form is filled out correctly. Also takes care of the progression route.
+ * @param {*} setIsValidate 
+ * @returns form
+ */
+const Form = ({ setIsValidate }) => {
     const employees = useSelector((state) => state.employees.employees)
     const [index, setIndex] = useState(1)
     const isOverMax = index >= 4
@@ -54,13 +61,13 @@ const Form = ({setIsValidate}) => {
     }
 
     const isCompleted = () => {
-        if (personalInformation.firstName === "" || personalInformation.lastName === "" || personalInformation.dateOfBirthday === ""){
+        if (personalInformation.firstName === "" || personalInformation.lastName === "" || personalInformation.dateOfBirthday === "") {
             return false
         }
-        if (adress.city === "" || adress.state === "" || adress.street === "" || adress.zipCode === ""){
+        if (adress.city === "" || adress.state === "" || adress.street === "" || adress.zipCode === "") {
             return false
         }
-        if (workInformation.departement === "" || workInformation.startDate === ""){
+        if (workInformation.departement === "" || workInformation.startDate === "") {
             return false
         }
         return true
@@ -68,37 +75,37 @@ const Form = ({setIsValidate}) => {
 
     const resetForm = () => {
         setTimeout(() => {
-        personalInformation.firstName = ""
-        personalInformation.lastName = ""
-        personalInformation.dateOfBirthday = ""
-        adress.city = ""
-        adress.state = ""
-        adress.street = ""
-        adress.zipCode = ""
-        workInformation.departement= ""
-        workInformation.startDate= ""
-        setIndex(1)
-        ref.current.style.transform = `translate(${990}px, ${0}px)`
+            personalInformation.firstName = ""
+            personalInformation.lastName = ""
+            personalInformation.dateOfBirthday = ""
+            adress.city = ""
+            adress.state = ""
+            adress.street = ""
+            adress.zipCode = ""
+            workInformation.departement = ""
+            workInformation.startDate = ""
+            setIndex(1)
+            ref.current.style.transform = `translate(${990}px, ${0}px)`
         }, 1500);
     }
 
     const onSubmit = (e) => {
         e.preventDefault()
-        if(isCompleted()){
+        if (isCompleted()) {
             let data = {
                 id: employees.length,
-                userInfos:{
+                userInfos: {
                     firstName: personalInformation.firstName,
                     lastName: personalInformation.lastName,
                     DateBirthday: personalInformation.dateOfBirthday,
                 },
-                Adress:{
+                Adress: {
                     Street: adress.street,
                     City: adress.city,
                     State: adress.state,
                     ZipCode: adress.zipCode
                 },
-                Departement : workInformation.departement,
+                Departement: workInformation.departement,
                 StartDate: workInformation.startDate
             }
             dispatch(addEmployee(data))

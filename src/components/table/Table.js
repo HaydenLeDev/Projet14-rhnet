@@ -2,6 +2,10 @@ import { useSelector } from "react-redux"
 import ItemTable from "./ItemTable"
 import "./Table.scss"
 
+/**
+ * Table component, create a table based on the received employee table.
+ * @returns table employee
+ */
 const Table = () => {
     const employees = useSelector((state) => state.employees.employees)
 
@@ -26,12 +30,12 @@ const Table = () => {
                         <div className="Table_header_filtres_filtre_line"></div>
                         <div className="Table_header_filtres_filtre_line"></div>
                     </div>
-                    <div className="Table_header_filtres_number">Items display 
-                    <select className="Table_header_filtres_number_select" type="number">
-                        <option value="10">10</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    </select>
+                    <div className="Table_header_filtres_number">Items display
+                        <select className="Table_header_filtres_number_select" type="number">
+                            <option value="10">10</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
                     </div>
                 </div>
             </div>

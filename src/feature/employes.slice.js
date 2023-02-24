@@ -1,15 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+/**
+ * Create and initialize your slice redux
+ */
 export const employeesSlice = createSlice({
-    name:"employees",
-    initialState:{
+    name: "employees",
+    initialState: {
         employees: null,
     },
     reducers: {
         setEmployeesData: (state, action) => {
             state.employees = action.payload
         },
-        addEmployee:(state, action) => {
+        addEmployee: (state, action) => {
             state.employees.push(action.payload)
         }
     }

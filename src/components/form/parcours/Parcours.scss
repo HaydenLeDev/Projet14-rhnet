@@ -1,10 +1,10 @@
 @import "../../../style/colors";
 
-.Parcours{
+.Parcours {
     display: flex;
     align-items: center;
 
-    &_boule{
+    &_boule {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -15,19 +15,18 @@
         text-align: left;
         background-color: $main-color-neutre;
 
-        &_actif{ 
+        &_actif {
             background-color: $main-color-fonce;
         }
     }
 
-    &_ligne{
+    &_ligne {
         height: 3px;
         width: 50px;
         background-color: $main-color-neutre;
 
-        &_actif{
+        &_actif {
             background-color: $main-color-fonce;
         }
     }
-
 }
