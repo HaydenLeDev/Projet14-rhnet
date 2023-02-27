@@ -96,9 +96,11 @@ const Table = () => {
 
     return (
         <div className="Table">
-            <FilterComponent onFilter={e => setFilterText(e.target.value)} filterText={filterText}/>
+            <div className="Table_header">
+                <h1 className="Table_header_title">Current Employees</h1>
+                <FilterComponent onFilter={e => setFilterText(e.target.value)} filterText={filterText}/>
+            </div>
             <DataTable
-                title="Current Employees"
                 columns={columns}
                 data={filteredItems}
                 pagination
