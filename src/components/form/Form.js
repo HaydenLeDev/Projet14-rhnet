@@ -96,17 +96,13 @@ const Form = ({ setIsValidate }) => {
         if (isCompleted()) {
             let data = {
                 id: employees.length,
-                userInfos: {
-                    firstName: personalInformation.firstName,
-                    lastName: personalInformation.lastName,
-                    DateBirthday: personalInformation.dateOfBirthday,
-                },
-                Adress: {
-                    Street: adress.street,
-                    City: adress.city,
-                    State: adress.state,
-                    ZipCode: adress.zipCode
-                },
+                firstName: personalInformation.firstName,
+                lastName: personalInformation.lastName,
+                DateBirthday: personalInformation.dateOfBirthday,
+                Street: adress.street,
+                City: adress.city,
+                State: adress.state,
+                ZipCode: adress.zipCode,
                 Departement: workInformation.departement,
                 StartDate: workInformation.startDate
             }
