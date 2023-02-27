@@ -62,15 +62,33 @@ const Table = () => {
 
     const [filterText, setFilterText] = useState('');
 
+    const filtre = (item, filterText) => {
+        if (item.firstName.toLowerCase().includes(filterText.toLowerCase()) ||
+        item.lastName.toLowerCase().includes(filterText.toLowerCase()) ||
+        item.DateBirthday.toLowerCase().includes(filterText.toLowerCase()) ||
+        item.Street.toLowerCase().includes(filterText.toLowerCase()) ||
+        item.City.toLowerCase().includes(filterText.toLowerCase()) ||
+        item.State.toLowerCase().includes(filterText.toLowerCase()) ||
+        item.ZipCode.toLowerCase().includes(filterText.toLowerCase()) ||
+        item.Departement.toLowerCase().includes(filterText.toLowerCase()) ||
+        item.StartDate.toLowerCase().includes(filterText.toLowerCase()) 
+        ){
+            return true
+        } else {
+            return false
+        }
+    }
+
+
     let filteredItems = employees
+
     if (filterText === ''){
         filteredItems = employees
         console.log(filterText)
         console.log(filteredItems)
     } else {
         filteredItems = employees.filter(
-            item => item.Departement && 
-                item.ZipCode.toLowerCase().includes(filterText.toLowerCase()),
+            item => filtre(item, filterText),
         );
         console.log(filterText)
         console.log(filteredItems)
