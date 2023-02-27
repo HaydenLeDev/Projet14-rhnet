@@ -1,4 +1,5 @@
-import { useSelector } from "react-redux"
+//import { useSelector } from "react-redux"
+import { employeeService } from "../../_services/employee.service"
 import ItemTable from "./ItemTable"
 import "./Table.scss"
 
@@ -7,7 +8,7 @@ import "./Table.scss"
  * @returns table employee
  */
 const Table = () => {
-    const employees = useSelector((state) => state.employees.employees)
+    const employees = employeeService.getEmployees()
 
     const generateTable = () => {
         const listItem = employees.map((employee) =>
