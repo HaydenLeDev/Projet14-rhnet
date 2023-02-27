@@ -1,6 +1,7 @@
 import { useState, useRef } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { addEmployee } from "../../feature/employes.slice"
+//import { useDispatch, useSelector } from "react-redux"
+//import { addEmployee } from "../../feature/employes.slice"
+import { employeeService } from "../../_services/employee.service"
 import "./Form.scss"
 import Parcours from "./parcours/Parcours"
 
@@ -11,12 +12,13 @@ import Parcours from "./parcours/Parcours"
  * @returns form
  */
 const Form = ({ setIsValidate }) => {
-    const employees = useSelector((state) => state.employees.employees)
+    //const employees = useSelector((state) => state.employees.employees)
+    const employees = employeeService.getEmployees()
     const [index, setIndex] = useState(1)
     const isOverMax = index >= 4
     const isLessMin = index <= 1
     const ref = useRef(null);
-    const dispatch = useDispatch()
+    //const dispatch = useDispatch()
 
     const [personalInformation, setPersonalInformation] = useState({
         firstName: "",
@@ -108,8 +110,8 @@ const Form = ({ setIsValidate }) => {
                 Departement: workInformation.departement,
                 StartDate: workInformation.startDate
             }
-            dispatch(addEmployee(data))
-            console.log(data)
+            //dispatch(addEmployee(data))
+            employeeService.addEmployee(data)
             setIsValidate(true)
             resetForm()
         }

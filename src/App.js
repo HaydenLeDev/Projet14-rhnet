@@ -3,17 +3,18 @@ import Header from "./components/header/Header"
 import NewEmployee from "./pages/newEmployee/NewEmployee"
 import CurrentEmployee from "./pages/currentEmployee/CurrentEmployee"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { setEmployeesData } from "./feature/employes.slice"
-import { EMPLOYEE } from "./data/dataMock"
+import { employeeService } from './_services/employee.service';
 
 /**
  * Router from my app
  * @returns the road component
  */
 const App = () => {
-  const dispatch = useDispatch()
-  dispatch(setEmployeesData(EMPLOYEE))
+  //const dispatch = useDispatch()
+  //dispatch(setEmployeesData(EMPLOYEE))
+  
 
   return (
     <div className="App">
