@@ -1,10 +1,9 @@
 //import { useSelector } from "react-redux"
 import DataTable from "react-data-table-component"
 import { employeeService } from "../../_services/employee.service"
-import ItemTable from "./ItemTable"
 import "./Table.scss"
-
-
+import { useState } from "react"
+import FilterComponent from './FilterComponent'
 /**
  * Table component, create a table based on the received employee table.
  * @returns table employee
@@ -12,6 +11,7 @@ import "./Table.scss"
 const Table = () => {
 
     const employees = employeeService.getEmployees()
+
     const columns = [
         {
             name: "FirstName",
@@ -26,6 +26,11 @@ const Table = () => {
         {
             name: "StartDate",
             selector: row => row.StartDate,
+            sortable: true,
+        },
+        {
+            name: "Departement",
+            selector: row => row.Departement,
             sortable: true,
         },
         {
@@ -55,12 +60,29 @@ const Table = () => {
         },
     ]
 
+    const [filterText, setFilterText] = useState('');
+
+    let filteredItems = employees
+    if (filterText === ''){
+        filteredItems = employees
+        console.log(filterText)
+        console.log(filteredItems)
+    } else {
+        filteredItems = employees.filter(
+            item => item.Departement && 
+                item.ZipCode.toLowerCase().includes(filterText.toLowerCase()),
+        );
+        console.log(filterText)
+        console.log(filteredItems)
+    }
+
     return (
         <div className="Table">
+            <FilterComponent onFilter={e => setFilterText(e.target.value)} filterText={filterText}/>
             <DataTable
                 title="Current Employees"
                 columns={columns}
-                data={employees}
+                data={filteredItems}
                 pagination
             />
         </div>
@@ -74,7 +96,7 @@ const generateTable = () => {
     )
     return listItem
 }
-
+ 
 return (
     <section className="Table">
         <div className="Table_header">
