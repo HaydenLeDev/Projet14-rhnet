@@ -9,12 +9,12 @@ import 'hayden-react-rhnet-library/dist/modal.css'
  */
 const NewEmployee = () => {
 
-    const [isValidate, setIsValidate] = useState(false)
+    const [isOpen, setIsValidate] = useState(false)
     
     return (
         <main>
-            <Form isValidate={isValidate} setIsValidate={setIsValidate} />
-            <Modal isValidate={isValidate} setIsValidate={setIsValidate} autoClose={true} />
+            <Form isOpen={isOpen} setIsValidate={setIsValidate} />
+            <Modal isOpen={isOpen} setIsValidate={setIsValidate} autoClose={true} />
         </main>
     )
 }
