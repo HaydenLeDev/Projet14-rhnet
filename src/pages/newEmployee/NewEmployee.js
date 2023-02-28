@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Form from "../../components/form/Form"
-import Modal from 'hayden-react-rhnet-library'
+import Modal from 'plugin-modal-hrnet'
 
 /**
  * Add an employee to our database. Also takes care of displaying the modal
