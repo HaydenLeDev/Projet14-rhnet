@@ -1,7 +1,6 @@
 import { useState } from "react"
 import Form from "../../components/form/Form"
 import Modal from 'hayden-react-rhnet-library'
-import 'hayden-react-rhnet-library/dist/modal.css'
 
 /**
  * Add an employee to our database. Also takes care of displaying the modal
@@ -9,12 +8,12 @@ import 'hayden-react-rhnet-library/dist/modal.css'
  */
 const NewEmployee = () => {
 
-    const [isOpen, setIsValidate] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
     
     return (
-        <main>
-            <Form isOpen={isOpen} setIsValidate={setIsValidate} />
-            <Modal isOpen={isOpen} setIsValidate={setIsValidate} autoClose={true} />
+        <main className="main_newEmployee">
+            <Form isOpen={isOpen} setIsOpen={setIsOpen} />
+            <Modal isOpen={isOpen} setIsOpen={setIsOpen} text={"Employee create !"} autoClose={true} isNotification={true} typeNotification="validate"/>
         </main>
     )
 }

@@ -3,9 +3,6 @@ import Header from "./components/header/Header"
 import NewEmployee from "./pages/newEmployee/NewEmployee"
 import CurrentEmployee from "./pages/currentEmployee/CurrentEmployee"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
-import { setEmployeesData } from "./feature/employes.slice"
-import { employeeService } from './_services/employee.service';
 
 /**
  * Router from my app
@@ -15,7 +12,6 @@ const App = () => {
   //const dispatch = useDispatch()
   //dispatch(setEmployeesData(EMPLOYEE))
   
-
   return (
     <div className="App">
       <BrowserRouter>

@@ -8,13 +8,21 @@
     text-decoration: none;
 }
 
-main {
+.main_newEmployee {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 90vh;
     position: relative;
     overflow: hidden;
+}
+
+.main_table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 70px;
+    padding-bottom: 50px;
 }
 
 fieldset {

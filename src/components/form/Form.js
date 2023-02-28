@@ -8,10 +8,10 @@ import Parcours from "./parcours/Parcours"
 
 /**
  * Contains our form, checks that the form is filled out correctly. Also takes care of the progression route.
- * @param {*} setIsValidate 
+ * @param {*} setIsOpen 
  * @returns form
  */
-const Form = ({ setIsValidate }) => {
+const Form = ({ setIsOpen }) => {
     //const employees = useSelector((state) => state.employees.employees)
     const employees = employeeService.getEmployees()
     const [index, setIndex] = useState(1)
@@ -88,7 +88,7 @@ const Form = ({ setIsValidate }) => {
             workInformation.startDate = ""
             setIndex(1)
             ref.current.style.transform = `translate(${990}px, ${0}px)`
-        }, 1500);
+        }, 10);
     }
 
     const onSubmit = (e) => {
@@ -108,7 +108,7 @@ const Form = ({ setIsValidate }) => {
             }
             //dispatch(addEmployee(data))
             employeeService.addEmployee(data)
-            setIsValidate(true)
+            setIsOpen(true)
             resetForm()
         }
     }
