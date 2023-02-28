@@ -9,9 +9,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
  * @returns the road component
  */
 const App = () => {
-  //const dispatch = useDispatch()
-  //dispatch(setEmployeesData(EMPLOYEE))
-  
   return (
     <div className="App">
       <BrowserRouter>
