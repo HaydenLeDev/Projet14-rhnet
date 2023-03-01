@@ -20,7 +20,7 @@ const Form = ({ setIsOpen }) => {
     const ref = useRef(null);
     //const dispatch = useDispatch()
 
-
+    //Variable pour les différents inputs du form
     const [personalInformation, setPersonalInformation] = useState({
         firstName: "",
         lastName: "",
@@ -39,6 +39,10 @@ const Form = ({ setIsOpen }) => {
         departement: "",
     })
 
+    /**
+     * Ecoute le les inputs pour les informations personnel et met a jour le state
+     * @param {*} e 
+     */
     const onChangePersonalInformation = (e) => {
         e.target.classList.add('isClicked')
         setPersonalInformation({
@@ -47,6 +51,10 @@ const Form = ({ setIsOpen }) => {
         })
     }
 
+    /**
+     * Ecoute le les inputs pour l'adresse et met a jour le state
+     * @param {*} e 
+     */
     const onChangeAdresse = (e) => {
         e.target.classList.add('isClicked')
         setAdresse({
@@ -54,7 +62,10 @@ const Form = ({ setIsOpen }) => {
             [e.target.name]: e.target.value
         })
     }
-
+    /**
+     * Ecoute le les inputs pour les informations de travail et met a jour le state
+     * @param {*} e 
+     */
     const onChangeWorkInformation = (e) => {
         e.target.classList.add('isClicked')
         setWorkInformation({
@@ -63,6 +74,10 @@ const Form = ({ setIsOpen }) => {
         })
     }
 
+    /**
+     * Vérifie que le formulaire est bien complet.
+     * @returns a boolean
+     */
     const isCompleted = () => {
         if (personalInformation.firstName === "" || personalInformation.lastName === "" || personalInformation.dateOfBirthday === "") {
             return false
@@ -76,6 +91,9 @@ const Form = ({ setIsOpen }) => {
         return true
     }
 
+    /**
+     * Reset le formulaire
+     */
     const resetForm = () => {
         setTimeout(() => {
             personalInformation.firstName = ""
@@ -92,6 +110,10 @@ const Form = ({ setIsOpen }) => {
         }, 10);
     }
 
+    /**
+     * Envois le donnée du formulaire
+     * @param {*} e 
+     */
     const onSubmit = (e) => {
         e.preventDefault()
         if (isCompleted()) {
@@ -114,6 +136,9 @@ const Form = ({ setIsOpen }) => {
         }
     }
 
+    /**
+     * Fait slider le formulaire jusqu'a la partie suivante
+     */
     const onClickNext = () => {
         if (!isOverMax) {
             setIndex(index + 1)
@@ -121,6 +146,9 @@ const Form = ({ setIsOpen }) => {
         }
     }
 
+    /**
+     * Fait slider le formulaire jusqu'a la partie précédente
+     */
     const onClickPrec = () => {
         if (!isLessMin) {
             setIndex(index - 1)
@@ -128,6 +156,10 @@ const Form = ({ setIsOpen }) => {
         }
     }
 
+    /**
+     * Génère la liste des options. 
+     * @returns les options par state
+     */
     const generateStateListe = () => {
         let options = []
         let key = 100
@@ -138,9 +170,15 @@ const Form = ({ setIsOpen }) => {
         return options
     }
 
+    /**
+     * Si tout 
+     * @returns a button
+     */
     const displaysNextOrValidate = () => {
-        if (isOverMax) {
+        if (isOverMax && isCompleted()) {
             return (<button className="button_next" onClick={onSubmit}>Validate</button>)
+        } else if (isOverMax){
+            return (<span></span>)
         }
         return (<button className="button_next" onClick={onClickNext}>Next</button>)
     }
@@ -267,7 +305,7 @@ const Form = ({ setIsOpen }) => {
                             value={workInformation.departement}
                             onChange={onChangeWorkInformation}
                             required>
-                            <option value="Sales" selected>Sales</option>
+                            <option value="Sales">Sales</option>
                             <option value="Marketing">Marketing</option>
                             <option value="Engineering">Engineering</option>
                             <option value="Human Resources">Human Resources</option>
