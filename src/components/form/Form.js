@@ -4,7 +4,7 @@ import { useState, useRef } from "react"
 import { employeeService } from "../../_services/employee.service"
 import "./Form.scss"
 import Parcours from "./parcours/Parcours"
-
+import { states } from "../../data/DataState"
 
 /**
  * Contains our form, checks that the form is filled out correctly. Also takes care of the progression route.
@@ -19,6 +19,7 @@ const Form = ({ setIsOpen }) => {
     const isLessMin = index <= 1
     const ref = useRef(null);
     //const dispatch = useDispatch()
+
 
     const [personalInformation, setPersonalInformation] = useState({
         firstName: "",
@@ -127,6 +128,16 @@ const Form = ({ setIsOpen }) => {
         }
     }
 
+    const generateStateListe = () => {
+        let options = []
+        let key = 100
+        states.forEach(state => {
+            key++
+            options.push(<option key={key} value={state.abbreviation}>{state.name}</option>)
+        })
+        return options
+    }
+
     const displaysNextOrValidate = () => {
         if (isOverMax) {
             return (<button className="button_next" onClick={onSubmit}>Validate</button>)
@@ -216,10 +227,7 @@ const Form = ({ setIsOpen }) => {
                             value={adress.state}
                             onChange={onChangeAdresse}
                             required>
-                            <option value="France">France</option>
-                            <option value="Belgium">Belgium</option>
-                            <option value="Suisse">Suisse</option>
-                            <option value="Canada">Canada</option>
+                            {generateStateListe()}
                         </select>
                         <label className="inputCustom_label">State</label>
                     </div>
@@ -259,7 +267,7 @@ const Form = ({ setIsOpen }) => {
                             value={workInformation.departement}
                             onChange={onChangeWorkInformation}
                             required>
-                            <option value="Sales">Sales</option>
+                            <option value="Sales" selected>Sales</option>
                             <option value="Marketing">Marketing</option>
                             <option value="Engineering">Engineering</option>
                             <option value="Human Resources">Human Resources</option>

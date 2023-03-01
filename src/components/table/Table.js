@@ -81,17 +81,13 @@ const Table = () => {
 
 
     let filteredItems = employees
-
+    
     if (filterText === ''){
         filteredItems = employees
-        console.log(filterText)
-        console.log(filteredItems)
     } else {
         filteredItems = employees.filter(
             item => filtre(item, filterText),
         );
-        console.log(filterText)
-        console.log(filteredItems)
     }
 
     return (
