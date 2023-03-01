@@ -1,4 +1,3 @@
-//import { useSelector } from "react-redux"
 import DataTable from "react-data-table-component"
 import { employeeService } from "../../_services/employee.service"
 import "./Table.scss"
@@ -11,7 +10,9 @@ import FilterComponent from './FilterComponent'
 const Table = () => {
 
     const employees = employeeService.getEmployees()
-
+    /**
+     * Setting up table columns
+     */
     const columns = [
         {
             name: "FirstName",
@@ -62,17 +63,23 @@ const Table = () => {
 
     const [filterText, setFilterText] = useState('');
 
+    /**
+     * Filter the table according to the word written in the search bar.
+     * @param {*} item 
+     * @param {*} filterText 
+     * @returns 
+     */
     const filtre = (item, filterText) => {
         if (item.firstName.toLowerCase().includes(filterText.toLowerCase()) ||
-        item.lastName.toLowerCase().includes(filterText.toLowerCase()) ||
-        item.DateBirthday.toLowerCase().includes(filterText.toLowerCase()) ||
-        item.Street.toLowerCase().includes(filterText.toLowerCase()) ||
-        item.City.toLowerCase().includes(filterText.toLowerCase()) ||
-        item.State.toLowerCase().includes(filterText.toLowerCase()) ||
-        item.ZipCode.toLowerCase().includes(filterText.toLowerCase()) ||
-        item.Departement.toLowerCase().includes(filterText.toLowerCase()) ||
-        item.StartDate.toLowerCase().includes(filterText.toLowerCase()) 
-        ){
+            item.lastName.toLowerCase().includes(filterText.toLowerCase()) ||
+            item.DateBirthday.toLowerCase().includes(filterText.toLowerCase()) ||
+            item.Street.toLowerCase().includes(filterText.toLowerCase()) ||
+            item.City.toLowerCase().includes(filterText.toLowerCase()) ||
+            item.State.toLowerCase().includes(filterText.toLowerCase()) ||
+            item.ZipCode.toLowerCase().includes(filterText.toLowerCase()) ||
+            item.Departement.toLowerCase().includes(filterText.toLowerCase()) ||
+            item.StartDate.toLowerCase().includes(filterText.toLowerCase())
+        ) {
             return true
         } else {
             return false
@@ -81,8 +88,7 @@ const Table = () => {
 
 
     let filteredItems = employees
-    
-    if (filterText === ''){
+    if (filterText === '') {
         filteredItems = employees
     } else {
         filteredItems = employees.filter(
@@ -94,7 +100,7 @@ const Table = () => {
         <div className="Table">
             <div className="Table_header">
                 <h1 className="Table_header_title">Current Employees</h1>
-                <FilterComponent onFilter={e => setFilterText(e.target.value)} filterText={filterText}/>
+                <FilterComponent onFilter={e => setFilterText(e.target.value)} filterText={filterText} />
             </div>
             <DataTable
                 columns={columns}

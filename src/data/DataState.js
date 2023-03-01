@@ -1,3 +1,6 @@
+/**
+ * Data for all states.
+ */
 export const states = [
     {
         "name": "Alaska",

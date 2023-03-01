@@ -1,6 +1,4 @@
 import { useState, useRef } from "react"
-//import { useDispatch, useSelector } from "react-redux"
-//import { addEmployee } from "../../feature/employes.slice"
 import { employeeService } from "../../_services/employee.service"
 import "./Form.scss"
 import Parcours from "./parcours/Parcours"
@@ -12,15 +10,14 @@ import { states } from "../../data/DataState"
  * @returns form
  */
 const Form = ({ setIsOpen }) => {
-    //const employees = useSelector((state) => state.employees.employees)
+
     const employees = employeeService.getEmployees()
     const [index, setIndex] = useState(1)
     const isOverMax = index >= 4
     const isLessMin = index <= 1
     const ref = useRef(null);
-    //const dispatch = useDispatch()
 
-    //Variable pour les différents inputs du form
+    //Variable for the different inputs of the form
     const [personalInformation, setPersonalInformation] = useState({
         firstName: "",
         lastName: "",
@@ -40,7 +37,7 @@ const Form = ({ setIsOpen }) => {
     })
 
     /**
-     * Ecoute le les inputs pour les informations personnel et met a jour le state
+     * Listen to the inputs for personal information and update the state
      * @param {*} e 
      */
     const onChangePersonalInformation = (e) => {
@@ -52,7 +49,7 @@ const Form = ({ setIsOpen }) => {
     }
 
     /**
-     * Ecoute le les inputs pour l'adresse et met a jour le state
+     * Listen to the inputs for the address and update the state
      * @param {*} e 
      */
     const onChangeAdresse = (e) => {
@@ -63,7 +60,7 @@ const Form = ({ setIsOpen }) => {
         })
     }
     /**
-     * Ecoute le les inputs pour les informations de travail et met a jour le state
+     * Listen to inputs for work information and update state
      * @param {*} e 
      */
     const onChangeWorkInformation = (e) => {
@@ -75,7 +72,7 @@ const Form = ({ setIsOpen }) => {
     }
 
     /**
-     * Vérifie que le formulaire est bien complet.
+     * Check that the form is complete.
      * @returns a boolean
      */
     const isCompleted = () => {
@@ -92,7 +89,7 @@ const Form = ({ setIsOpen }) => {
     }
 
     /**
-     * Reset le formulaire
+     * Reset the form
      */
     const resetForm = () => {
         setTimeout(() => {
@@ -111,7 +108,7 @@ const Form = ({ setIsOpen }) => {
     }
 
     /**
-     * Envois le donnée du formulaire
+     * Submit form data
      * @param {*} e 
      */
     const onSubmit = (e) => {
@@ -129,7 +126,6 @@ const Form = ({ setIsOpen }) => {
                 Departement: workInformation.departement,
                 StartDate: workInformation.startDate
             }
-            //dispatch(addEmployee(data))
             employeeService.addEmployee(data)
             setIsOpen(true)
             resetForm()
@@ -137,7 +133,7 @@ const Form = ({ setIsOpen }) => {
     }
 
     /**
-     * Fait slider le formulaire jusqu'a la partie suivante
+     * Slides the form to the next part
      */
     const onClickNext = () => {
         if (!isOverMax) {
@@ -147,7 +143,7 @@ const Form = ({ setIsOpen }) => {
     }
 
     /**
-     * Fait slider le formulaire jusqu'a la partie précédente
+     * Slide the form to the previous part
      */
     const onClickPrec = () => {
         if (!isLessMin) {
@@ -157,8 +153,8 @@ const Form = ({ setIsOpen }) => {
     }
 
     /**
-     * Génère la liste des options. 
-     * @returns les options par state
+     * Generates the list of options. 
+     * @returns options by state
      */
     const generateStateListe = () => {
         let options = []
@@ -171,13 +167,14 @@ const Form = ({ setIsOpen }) => {
     }
 
     /**
-     * Si tout est validé et que tout es
+     * If everything is validated and everything is completed the "Valid" 
+     * button is displayed otherwise it is the "next" button
      * @returns a button
      */
     const displaysNextOrValidate = () => {
         if (isOverMax && isCompleted()) {
             return (<button className="button_next" onClick={onSubmit}>Validate</button>)
-        } else if (isOverMax){
+        } else if (isOverMax) {
             return (<span></span>)
         }
         return (<button className="button_next" onClick={onClickNext}>Next</button>)

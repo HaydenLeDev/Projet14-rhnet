@@ -1,5 +1,8 @@
 import { TextField } from "@mui/material"
-
+/**
+ *  Input for array filter
+ * @returns FilterComponent
+ */
 const FilterComponent = ({ filterText, onFilter }) => {
     return (
         <>
@@ -11,7 +14,6 @@ const FilterComponent = ({ filterText, onFilter }) => {
                 value={filterText}
                 onChange={onFilter}
             />
-            
         </>
     )
 }
