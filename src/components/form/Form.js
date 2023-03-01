@@ -171,7 +171,7 @@ const Form = ({ setIsOpen }) => {
     }
 
     /**
-     * Si tout 
+     * Si tout est validé et que tout es
      * @returns a button
      */
     const displaysNextOrValidate = () => {
