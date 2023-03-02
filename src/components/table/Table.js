@@ -86,7 +86,6 @@ const Table = () => {
         }
     }
 
-
     let filteredItems = employees
     if (filterText === '') {
         filteredItems = employees
