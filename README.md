@@ -49,7 +49,7 @@ The project is created with the following technologies:
 * React: 18.2.0
 * react-dom: 6.8.0
 * @mui/muterial: 5.11.10
-* plugin-modal-hrnet: 1.0.9
+* plugin-modal-hrnet: 1.0.10
 * sass: 1.58.0
 
 ## Prerequisites
