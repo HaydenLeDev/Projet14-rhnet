@@ -51,6 +51,9 @@ The project is created with the following technologies:
 * @mui/muterial: 5.11.10
 * plugin-modal-hrnet: 1.0.10
 * sass: 1.58.0
+* react-redux: 8.0.5
+* redux-persist: 6.0.0
+* @reduxjs/toolkit: 1.9.2
 
 ## Prerequisites
 * Installing nodeJS
