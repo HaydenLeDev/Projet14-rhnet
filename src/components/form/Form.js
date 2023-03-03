@@ -3,6 +3,8 @@ import { employeeService } from "../../_services/employee.service"
 import "./Form.scss"
 import Parcours from "./parcours/Parcours"
 import { states } from "../../data/DataState"
+import { useDispatch } from "react-redux"
+import { addEmployee } from "../../feature/employes.slice"
 
 /**
  * Contains our form, checks that the form is filled out correctly. Also takes care of the progression route.
@@ -10,7 +12,7 @@ import { states } from "../../data/DataState"
  * @returns form
  */
 const Form = ({ setIsOpen }) => {
-
+    const dispatch = useDispatch()
     const employees = employeeService.getEmployees()
     const [index, setIndex] = useState(1)
     const isOverMax = index >= 4
@@ -127,6 +129,7 @@ const Form = ({ setIsOpen }) => {
                 StartDate: workInformation.startDate
             }
             employeeService.addEmployee(data)
+            dispatch(addEmployee(data))
             setIsOpen(true)
             resetForm()
         }

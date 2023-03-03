@@ -1,15 +1,16 @@
 import DataTable from "react-data-table-component"
-import { employeeService } from "../../_services/employee.service"
 import "./Table.scss"
 import { useState } from "react"
 import FilterComponent from './FilterComponent'
+import { useSelector } from "react-redux"
 /**
  * Table component, create a table based on the received employee table.
  * @returns table employee
  */
 const Table = () => {
 
-    const employees = employeeService.getEmployees()
+    //const employees = employeeService.getEmployees()
+    const employees = useSelector((state) => state.employees.employees)
     /**
      * Setting up table columns
      */
