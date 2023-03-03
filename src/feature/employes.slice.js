@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+/**
+ * Slice Redux for State Employees
+ */
 export const employeesSlice = createSlice({
     name:"employees",
     initialState:{
